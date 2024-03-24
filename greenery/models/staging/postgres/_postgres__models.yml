@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_postgres__users
+    description: 'Model with Users information'
+  - name: stg_postgres__Addresses
+    description: 'Model with Users Addresses'
+  - name: stg_postgres__Promos
+    description: 'Model with promo details'
+  - name: stg_postgres__Orders
+    description: 'model with customer Orders'
+  - name: stg_postgres__Products
+    description: 'model with product information'
+  - name: stg_postgres__Order_items
+    description: 'model with items ordered'
+  - name: stg_postgres__Events   
+    description: 'Model with users events'
+     
