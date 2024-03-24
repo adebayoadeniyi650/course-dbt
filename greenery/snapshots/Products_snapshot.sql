@@ -1,4 +1,4 @@
-{% snapshot products_snapshot %}
+{%snapshot products_snapshot%}
 {{
   config(
     target_database = target.database,
@@ -10,4 +10,4 @@
 }}
 select * from {{source ('postgres','Products')}}
 
-{% end snapshot %}
+{% endsnapshot %}
