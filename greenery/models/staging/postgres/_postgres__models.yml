@@ -2,17 +2,63 @@ version: 2
 
 models:
   - name: stg_postgres__users
-    description: 'Model with Users information'
+    columns:
+      - name: user_id
+        description: "primary key"
+        tests: 
+          - unique
+          - not_null
+      - name: first_name
+        description: ""
+      - name: last_name
+        description: ""
+      - name: email
+        description: ""
+      - name: phone_number
+        description: ""
+      - name: created_at
+        description: ""
+      - name: updated_at
+        description: ""
+      - name: address_id
+        description: ""
   - name: stg_postgres__Addresses
-    description: 'Model with Users Addresses'
+    columns: 
+      - name: ADDRESS_ID
+        description: "Model with Users Addresses"
+        tests: 
+          - not_null
+          - unique
+      - name: Zipcode
+        description: ""
+        tests: 
+          - not_null
   - name: stg_postgres__Promos
-    description: 'Model with promo details'
+    description: "Model with promo details"
   - name: stg_postgres__Orders
-    description: 'model with customer Orders'
+    description: "model with customer Orders"
   - name: stg_postgres__Products
-    description: 'model with product information'
+    description: "model with product information"
   - name: stg_postgres__Order_items
-    description: 'model with items ordered'
+    description: "model with items ordered"
   - name: stg_postgres__Events   
-    description: 'Model with users events'
+    description: "Model with users events"
+    columns: 
+      - name: event_id
+        tests: 
+           - not_null
+           - unique
+      - name: user_id
+        tests: 
+          - relationships:
+              to: ref('stg_postgres__users')
+              field: user_id
+      - name: event_type
+        tests:
+          - accepted values:
+              values:
+                - checkout
+                - package_shipped
+                - add_to_cart
+                - page_view
      
